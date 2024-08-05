@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+div{
+  color: white;
+  font-size: 80px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+div::before{
+  content: '';
+  position: absolute;
+  background-color: white;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  animation: move 4s linear infinite;
+  mix-blend-mode: difference;
+}
+
+@keyframes move {
+  0%,
+  100%{
+    left: 0;
+  }
+  50%{
+    left: calc(100% - 100px) ;
+  }
+}
+
+@media (max-width:500px){
+  div{
+    font-size: 55px;
+  }
+  div::before{
+    width: 55px;
+    height: 55px;
+  }
+  @keyframes move {
+    50%{
+      left: calc(100% - 55px) ;
+    }
+  }
+}
